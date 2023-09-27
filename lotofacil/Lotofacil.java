@@ -58,7 +58,6 @@ public class Lotofacil {
     }
 
     private static void aposta2() throws IOException {
-        System.out.println("\nAposta de A a Z");
         char letraSorteada = 'J';
         System.out.print("Digite a letra de A a Z: ");
         char letraApostada = (char)System.in.read();
@@ -80,9 +79,9 @@ public class Lotofacil {
         System.out.print("Digite um número: ");
         Scanner in = new Scanner(System.in);
         int numeroDigitado = in.nextInt();
-        if(numeroDigitado % 2 == 0){
+        if (numeroDigitado % 2 == 0) {
             System.out.println("Você ganhou cenzão.");
-        }else{
+        } else {
             System.out.println("Você perdeu!");
         }
     }

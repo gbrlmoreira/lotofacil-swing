@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -32,18 +33,18 @@ public class LotofacilGUI extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 aposta1();
             }
-            });
-        jButtonAposta1.addActionListener(new ActionListener() {
+        });
+        jButtonAposta2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 aposta2();
             }
         });
-        jButtonAposta1.addActionListener(new ActionListener() {
+        jButtonAposta3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 aposta3();
             }
         });
-}
+    }
     public static void main(String[] args) {new LotofacilGUI();}
 
     private void aposta1() {
@@ -51,21 +52,39 @@ public class LotofacilGUI extends JFrame{
         int numApostado = Integer.parseInt(aposta);
         Random rnd = new Random();
         int numSorteado = rnd.nextInt(101);
-        JOptionPane.showMessageDialog(null, "Numero sorteado: " + numSorteado);
 
         if(numApostado == numSorteado){
             JOptionPane.showMessageDialog(null, "Você ganhou milzão.");
         }else {
-            JOptionPane.showMessageDialog(null, "Você perdeu!, o número sorteado foi: " + numSorteado);
+            JOptionPane.showMessageDialog(null, "Você perdeu! \n O número sorteado foi: " + numSorteado);
         }
     }
 
     private void aposta2() {
+        char letraSorteada = 'J';
+        String letraApostada = JOptionPane.showInputDialog("Digite uma letra de A a Z: ");
+        letraApostada = letraApostada.toUpperCase();
 
+        if (letraApostada.length() == 1 && Character.isLetter(letraApostada.charAt(0))) {
+            if (letraApostada.charAt(0) == letraSorteada) {
+                JOptionPane.showMessageDialog(null, "Você ganhou quinhentão.\n");
+            } else {
+                JOptionPane.showMessageDialog(null,"Você perdeu! \n A letra sorteada foi: " + letraSorteada + "\n");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null,"Não é uma letra válida.");
+        }
     }
 
     private void aposta3() {
+        JOptionPane.showMessageDialog(null,"\nAposta em par ou ímpar");
+        String numD = JOptionPane.showInputDialog("Digite um número: ");
+        int numDigitado = Integer.parseInt(numD);
+        if (numDigitado % 2 == 0) {
+            JOptionPane.showMessageDialog(null,"Você ganhou cenzão.");
+        } else {
+            JOptionPane.showMessageDialog(null,"Você perdeu!");
+        }
 
     }
 }
-
